@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-  <title>ESTUDIANTES</title>
+  <title>COLABORADORES</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,14 +14,11 @@
     <!-- ICONS BOOTSTRAP-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 
-    <!--Lightbox CSS-->
-    <link rel="stylesheet" href="../dist/lightbox2/src/css/lightbox.css">
-
 </head>
 
   <!-- Modal trigger button -->
   <div class="col-md-6 text-left">
-          <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modal-estudiante"><i class="bi bi-person-plus-fill"></i>Registro</button>
+          <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modal-colaborador"><i class="bi bi-person-plus-fill"></i>Registro COLAB</button>
   </div>
 
 
@@ -30,16 +27,17 @@
     <div class="row">
 
       <div class="card-body">
-        <table class="table table-sm table-striped" id="tabla-estudiantes">
+        <table class="table table-sm table-striped" id="tabla-colaboradores">
           <thead>
           <tr>
           <th>#</th>
           <th>Apellidos</th>
           <th>Nombres</th>
-          <th>Tipo Doc.</th>
-          <th>Documento</th>
-          <th>Nacimiento</th>
-          <th>Carrera</th>
+          <th>Cargo</th>
+          <th>Sede</th>
+          <th>Teléfono</th>
+          <th>Direccion</th>
+          <th>Tipo Contrato</th>
           <th>Operaciones</th>
         </tr>
 
@@ -60,11 +58,11 @@
   
   <!-- Modal Body -->
   <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-  <div class="modal fade" id="modal-estudiante" tabindex="-1" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+  <div class="modal fade" id="modal-colaborador" tabindex="-1" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header text-bg-secondary">
-          <h5 class="modal-title" id="modalTitleId">Complete el Registro</h5>
+          <h5 class="modal-title" id="modalTitleId">Complete el Registro de NUEVO Colaborador:</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -162,32 +160,6 @@
   <script>
     $(document).ready(function (){
 
-      function obtenerSedes(){
-        $.ajax({
-          url: '../controllers/sede.controller.php',
-          type: 'POST',
-          data: {operacion: 'listar'},
-          dataType: 'text',
-          success: function(result){
-            $("#sede").html(result);
-          }
-
-        });
-      }
-
-
-      function obtenerEscuelas(){
-        $.ajax({
-          url: '../controllers/escuela.controller.php',
-          type: 'POST',
-          data: {operacion: 'listar'},
-          dataType: 'text',
-          success: function(result){
-            $("#escuela").html(result);
-          }
-
-        });
-      }
 
       function registrarEstudiante(){
         //Enviaremos los datos dentro de un OBJETO
@@ -239,19 +211,19 @@
         });
       }
 
-      function mostrarEstudiantes(){
+      function mostrarColaboradores(){
         $.ajax({
-          url: '../controllers/estudiante.controller.php',
+          url: '../controllers/colaborador.controller.php',
           type: 'POST',
           data: {operacion: 'listar'},
           dataType: 'text',
           success: function(result){
-            $("#tabla-estudiantes tbody").html(result);
+            $("#tabla-colaboradores tbody").html(result);
           }
         });
       }
     
-      $("#guardar-estudiante").click(preguntarRegistro);
+      $("#guardar-colaboradores").click(preguntarRegistro);
 
 
 
@@ -283,7 +255,7 @@
       });
 
       //Funciones de carga auomática
-      mostrarEstudiantes();
+      mostrarColaboradores();
 
     });
   </script>

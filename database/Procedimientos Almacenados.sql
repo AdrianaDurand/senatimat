@@ -78,3 +78,61 @@ UPDATE estudiantes
 			fotografia = '';
 
 
+-- ----------------------------------------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------- PROCEDIMIENTOS DE COLABORADORES
+-- ----------------------------------------------------------------------------------------------------------------
+
+
+-- LISTAR COLABORADORES
+
+DELIMITER $$
+CREATE PROCEDURE spu_colaboradores_listar()
+BEGIN
+		SELECT 	COLAB.idcolaborador,
+					COLAB.apellidos, COLAB.nombres,
+					CAR.cargo,
+					SED.sede,
+					COLAB.telefono, COLAB.tipocontrato,
+					COLAB.direccion,
+					COLAB.curriculumvitae
+			FROM colaboradores COLAB
+			INNER JOIN cargos CAR ON CAR.idcargo = COLAB.idcargo
+			INNER JOIN sedes SED ON SED.idsede = COLAB.idsede
+			WHERE COLAB.estado = '1';
+END$$
+
+
+
+
+DELIMITER $$
+CREATE PROCEDURE spu_colaborador_registrar
+(
+	IN _apellidos 			VARCHAR(40),
+	IN _nombres				VARCHAR(40),
+	IN _idcargo				INT,
+	IN _idsede				INT,
+	IN _telefono			CHAR(9),
+	IN _tipocontrato		CHAR(1),
+	IN _direccion			VARCHAR (40),
+	IN _curriculumvitae	VARCHAR(100)
+)
+BEGIN
+
+	-- Validar el contenido de _fotografia
+	IF _fotografia = '' THEN
+		SET _fotografia = NULL;
+	END IF;
+	
+	INSERT INTO estudiantes 
+	(apellidos, nombres, tipodocumento, nrodocumento, fechanacimiento, idcarrera, idsede, fotografia) VALUES
+	(_apellidos, _nombres, _tipodocumento, _nrodocumento, _fechanacimiento, _idcarrera, _idsede, _fotografia);
+END$$
+
+CALL spu_estudiantes_registrar('Prada', 'Teresa', 'C', '02345678', '2002-09-25', 3,2, '');
+SELECT * FROM estudiantes;
+
+
+
+
+
+

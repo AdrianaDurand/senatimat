@@ -83,3 +83,52 @@ INSERT INTO estudiantes (apellidos, nombres, nrodocumento, fechanacimiento, idca
 ('Quintana', 'Tania', '33334444', '2001-05-05', 9, 4);
 
 SELECT * FROM estudiantes;
+
+-- -------------------------------------------------------------------------------------
+-- ------------------------------------------------------------------TABLA COLABORADORES
+-- -------------------------------------------------------------------------------------
+
+-- ***** TABLA CARGO ***** --
+
+CREATE TABLE cargos
+(
+	idcargo	INT AUTO_INCREMENT PRIMARY KEY,
+	cargo		VARCHAR(40)		NOT NULL,
+	CONSTRAINT uk_cargo_crg UNIQUE (cargo)
+)ENGINE = INNODB;
+
+INSERT INTO cargos (cargo) VALUES
+	('Instructor'),
+	('Jefe Centro'),
+	('Asist. Administrativo'),
+	('Asist. Académico'),
+	('Coordinador ETIA'),
+	('Coordinador CIS');
+	SELECT * FROM cargos;
+
+-- ***** TABLA COLABORADORES ***** --
+
+CREATE TABLE colaboradores (
+  idcolaborador 		INT AUTO_INCREMENT PRIMARY KEY,
+  apellidos		 		VARCHAR (40) NOT NULL, 
+  nombres 				VARCHAR (40) NOT NULL,
+  idcargo			 	INT NOT NULL,
+  idsede 				INT NOT NULL,
+  telefono		 		CHAR(9) NOT NULL,
+  tipocontrato 		CHAR(1) NOT NULL,
+  direccion 			VARCHAR (40) NOT NULL,
+  curriculumvitae 		VARCHAR (100) NOT NULL,
+  fecharegistro 		DATETIME NOT NULL DEFAULT NOW(),
+  fechaupdate			DATETIME NULL,
+  estado CHAR(1) 		NOT NULL DEFAULT '1',
+  CONSTRAINT fk_cargo_colab FOREIGN KEY (idcargo) REFERENCES cargos (idcargo),
+  CONSTRAINT fk_idsede_colab FOREIGN KEY (idsede) REFERENCES sedes (idsede)
+)ENGINE = INNODB;
+
+SELECT * FROM colaboradores;
+
+INSERT INTO colaboradores (apellidos, nombres, idcargo, idsede, telefono, tipocontrato, direccion) VALUES
+('Cartagena Ramos', 'Mirtha', 1, 2, '123456789', 'C', 'casita'),
+('Ochoa Sanchez', 'Carmen', 5, 1, '123456789', 'C', 'casita');
+
+
