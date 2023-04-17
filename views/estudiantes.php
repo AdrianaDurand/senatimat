@@ -11,36 +11,26 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
+    <!-- ICONS BOOTSTRAP-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+
+    <!--Lightbox CSS-->
+    <link rel="stylesheet" href="../dist/lightbox2/src/css/lightbox.css">
+
 </head>
+
+  <!-- Modal trigger button -->
+  <div class="col-md-6 text-left">
+          <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modal-estudiante"><i class="bi bi-person-plus-fill"></i>Registro</button>
+  </div>
+
 
 <body>
   <div class="container mt-3">
-    <div class="card">
-      <div class="card-header bg-primary text-ligth">
-        <div class="row">
-          <div class="col-md-6">
-            <strong>LISTA DE USUARIOS</strong>
-          </div>
+    <div class="row">
 
-          <div class="col-md-6 text-end">
-            <button class="btn btn-success btn-sm" id="abrir-modal" data-bs-toggle="modal" data-bs-target="#modal-registro-usuarios"><i class="bi bi-plus-circle-fill"></i>Agregar Usuario
-            </button>
-
-          </div>
-        </div>
-
-      </div>
       <div class="card-body">
         <table class="table table-sm table-striped" id="tabla-estudiantes">
-          <colgroup>
-            <col width = "5%"> 
-            <col width = "20%">
-            <col width = "20%">
-            <col width = "15%">
-            <col width = "10%">
-            <col width = "20%">
-            <col width = "10%">
-          </colgroup>
           <thead>
           <tr>
           <th>#</th>
@@ -54,23 +44,17 @@
         </tr>
 
           </thead>
-          <tbody>
+        <tbody></tbody>
+        
+      </table>
+      </div>
 
-          </tbody>
-        </table>
-      </div>
-      <div class="card-footer text-es">
-        <a href="../controllers/usuario.controller.php?operacion=finalizar"><i class="bi bi-box-arrow-left"></i>Cerrar Sesion</a>
-        </button>
-      </div>
     </div>
   </div> <!-- Fin de container-->
 
   
-  <!-- Modal trigger button -->
-  <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modal-estudiante">
-    Registro
-  </button>
+
+  
 
 
   
@@ -169,9 +153,11 @@
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-  <!--Sweet alert-->
+  <!--Sweet alert2-->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+  <!--Lightbox JS-->
+  <script src="../dist/lightbox2/src/js/lightbox.js"></script>
 
   <script>
     $(document).ready(function (){
@@ -252,6 +238,18 @@
           }
         });
       }
+
+      function mostrarEstudiantes(){
+        $.ajax({
+          url: '../controllers/estudiante.controller.php',
+          type: 'POST',
+          data: {operacion: 'listar'},
+          dataType: 'text',
+          success: function(result){
+            $("#tabla-estudiantes tbody").html(result);
+          }
+        });
+      }
     
       $("#guardar-estudiante").click(preguntarRegistro);
 
@@ -283,6 +281,9 @@
         obtenerSedes();
         obtenerEscuelas();
       });
+
+      //Funciones de carga auomática
+      mostrarEstudiantes();
 
     });
   </script>
