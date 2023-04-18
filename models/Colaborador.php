@@ -11,7 +11,7 @@ class Colaborador extends Conexion {
 
   public function registrarColaborador($datos = []){
     try{
-      $consulta = $this->accesoBD->prepare("CALL spu_colaborador_registrar(?,?,?,?,?,?,?,?)");
+      $consulta = $this->accesoBD->prepare("CALL spu_colaborador_registrar(?,?,?,?,?,?,?,?,?)");
       $consulta->execute(
         array(
           $datos['apellidos'],

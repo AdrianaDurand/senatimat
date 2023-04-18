@@ -14,8 +14,9 @@ if(isset($_POST['operacion'])) {
     $datosGuardar = [
       "apellidos"          =>$_POST['apellidos'],
       "nombres"            =>$_POST['nombres'],
-      "dni"                =>$_POST['dni'],
+      "nrodocumento"       =>$_POST['nrodocumento'],
       "telefono"           =>$_POST['telefono'],
+      "direccion"           =>$_POST['direccion'],
       "tipocontrato"       =>$_POST['tipocontrato'],
       "idcargo"            =>$_POST['idcargo'],
       "idsede"             =>$_POST['idsede'],
@@ -25,9 +26,9 @@ if(isset($_POST['operacion'])) {
     //Vamos a verficar si la vista nos envió una FOTOGRAFIA // NO GUARDAMOS LA IMAGEN SI NO LA RUTA
     if (isset($_FILES['curriculumvitae'])){
 
-      $rutaDestino = '../views/binario/pdf';
+      $rutaDestino = '../views/binario/pdf/';
       $fechaActual = date('c'); //C = complete, AÑO/MES/DIA/MINUTO/SEGUNDO
-      $nombreArchivo = sha1($fechaActual) . ".jpg";
+      $nombreArchivo = sha1($fechaActual) . ".pdf";
       $rutaDestino .= $nombreArchivo;
 
       //Guardamos la fotografia en el servidor
@@ -88,19 +89,11 @@ if(isset($_POST['operacion'])) {
           </tr>
         "; 
 
-          $numeroFila++;
+        $numeroFila++;
           
 
       }
     }
   } // Fin de operación listar
-
-
-
-
-
-
-
-
 
 }

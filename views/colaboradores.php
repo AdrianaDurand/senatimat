@@ -256,7 +256,7 @@
         });
       }
     
-      $("#guardar-colaborador").click(preguntarRegistroCOLAB);
+    $("#guardar-colaborador").click(preguntarRegistroCOLAB);
 
 
 
