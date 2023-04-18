@@ -112,6 +112,7 @@ CREATE TABLE colaboradores (
   idcolaborador 		INT AUTO_INCREMENT PRIMARY KEY,
   apellidos		 		VARCHAR (40) NOT NULL, 
   nombres 				VARCHAR (40) NOT NULL,
+  nrodocumento 				CHAR(8) NOT NULL,
   idcargo			 	INT NOT NULL,
   idsede 				INT NOT NULL,
   telefono		 		CHAR(9) NOT NULL,
@@ -121,14 +122,15 @@ CREATE TABLE colaboradores (
   fecharegistro 		DATETIME NOT NULL DEFAULT NOW(),
   fechaupdate			DATETIME NULL,
   estado CHAR(1) 		NOT NULL DEFAULT '1',
+   CONSTRAINT uk_nrodocumento_est UNIQUE (nrodocumento),
   CONSTRAINT fk_cargo_colab FOREIGN KEY (idcargo) REFERENCES cargos (idcargo),
   CONSTRAINT fk_idsede_colab FOREIGN KEY (idsede) REFERENCES sedes (idsede)
 )ENGINE = INNODB;
 
 SELECT * FROM colaboradores;
 
-INSERT INTO colaboradores (apellidos, nombres, idcargo, idsede, telefono, tipocontrato, direccion) VALUES
-('Cartagena Ramos', 'Mirtha', 1, 2, '123456789', 'C', 'casita'),
-('Ochoa Sanchez', 'Carmen', 5, 1, '123456789', 'C', 'casita');
+INSERT INTO colaboradores (apellidos, nombres, nrodocumento, idcargo, idsede, telefono, tipocontrato, direccion) VALUES
+('Cartagena Ramos', 'Mirtha', '12345678', 1, 2, '123456789', 'C', 'casita'),
+('Ochoa Sanchez', 'Carmen', '87654321', 5, 1, '123456789', 'C', 'casita');
 
 

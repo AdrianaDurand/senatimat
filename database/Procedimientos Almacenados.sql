@@ -130,10 +130,17 @@ BEGIN
 	(_apellidos, _nombres, _nrodocumento, _idcargo, _idsede, _telefono, _tipocontrato, _direccion, _curriculumvitae);
 END$$
 
-CALL spu_colaborador_registrar('Loayza López', 'Ana María', '89047583', 6,2, '988289001', 'P', 'home','');
+CALL spu_colaborador_registrar('Cardenas', 'María', '12341231', 6,2, '988289001', 'P', 'home','');
 SELECT * FROM colaboradores;
 
+-- PROCEDIMIENTO PARA LISTAR CARGOS
+DELIMITER $$
+CREATE PROCEDURE spu_cargos_listar()
+BEGIN
+		SELECT * FROM cargos ORDER BY 2;
+END$$
 
+CALL spu_cargos_listar()
 
 
 
