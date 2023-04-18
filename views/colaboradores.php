@@ -19,10 +19,6 @@
 
 </head>
 
-<!-- Modal trigger button -->
-<div class="col-md-6 text-left">
-          <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal-colaborador"><i class="bi bi-person-plus-fill"></i>Registro COLAB</button>
-  </div>
 
 
 <body>
@@ -50,6 +46,12 @@
         
       </table>
       </div>
+
+      <!-- Modal trigger button -->
+      <div class="col-md-6 text-left">
+          <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal-colaborador"><i class="bi bi-person-plus-fill"></i>Registro COLAB</button>
+      </div>
+
 
     </div>
   </div> <!-- Fin de container-->
