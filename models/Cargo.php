@@ -22,3 +22,4 @@ class Cargo extends Conexion{
     }
   
   }
+  

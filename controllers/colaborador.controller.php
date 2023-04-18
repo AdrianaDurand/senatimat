@@ -59,6 +59,7 @@ if(isset($_POST['operacion'])) {
           $datosColaborador = $registro['apellidos'] . ' ' . $registro['nombres'];
 
 
+          
       //La primera parte a RENDERIZAR, es lo standard (siempre se muestra)
       echo "
       <tr>

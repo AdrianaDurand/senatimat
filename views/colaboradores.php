@@ -270,6 +270,7 @@
       mostrarColaboradores();
       
 
+      
       // ELIMINAR COLABORADORES
       $("#tabla-colaboradores tbody").on("click", ".eliminar", function(){
         const idcolaboradorEliminar = $(this).data("idcolaborador");
