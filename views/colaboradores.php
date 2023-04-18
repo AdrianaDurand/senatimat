@@ -268,6 +268,27 @@
 
       //Funciones de carga auomática
       mostrarColaboradores();
+      
+
+      // ELIMINAR COLABORADORES
+      $("#tabla-colaboradores tbody").on("click", ".eliminar", function(){
+        const idcolaboradorEliminar = $(this).data("idcolaborador");
+        if (confirm("¿Está seguro de eliminar a este Colaborador?")){
+          $.ajax({
+            url: '../controllers/colaborador.controller.php',
+            type: 'POST',
+            data: {
+              operacion   : 'eliminar',
+              idcolaborador   : idcolaboradorEliminar
+            },
+            success: function(result){
+              if(result == ""){
+              mostrarColaboradores();
+              }
+            }
+          });
+        }
+      });
 
     });
   </script>

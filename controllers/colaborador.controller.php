@@ -72,7 +72,7 @@ if(isset($_POST['operacion'])) {
         <td>{$registro['cargo']}</td>
         <td>{$registro['sede']}</td>
         <td>
-            <a href='#' class='btn btn-sm btn-danger'><i class='bi bi-trash-fill'></i></a>
+            <a href='#' data-idcolaborador='{$registro['idcolaborador']}' class='btn btn-danger btn-sm eliminar'><i class='bi bi-trash3-fill'></i></a>
             <a href='#' class='btn btn-sm btn-info'><i class='bi bi-pencil-fill'></i></a>";
 
         //La segunda parte a RENDERIZAR, es el botón VER PDF
@@ -80,14 +80,14 @@ if(isset($_POST['operacion'])) {
         if ($registro['curriculumvitae'] == ''){
           echo $botonNulo;
         }else{
-          echo "<a href='../views/document/pdf{$registro['curriculumvitae']}' target='_blank' class='btn btn-sm btn-warning'><i class='bi bi-eye-fill'></i></a>";
+          echo "<a href='../views/document/pdf/{$registro['curriculumvitae']}' target='_blank' class='btn btn-sm btn-warning'><i class='bi bi-eye-fill'></i></a>";
         }
 
         //La tercera parte a RENDERIZAR, cierre de la fila
         echo"
-          </td>
-          </tr>
-        "; 
+        </td>
+        </tr>
+      "; 
 
         $numeroFila++;
           
@@ -95,5 +95,11 @@ if(isset($_POST['operacion'])) {
       }
     }
   } // Fin de operación listar
+
+  
+  if($_POST['operacion'] == 'eliminar'){
+    $colaborador->eliminarColaborador($_POST['idcolaborador']);
+  }
+
 
 }

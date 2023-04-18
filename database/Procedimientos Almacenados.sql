@@ -142,6 +142,20 @@ END$$
 
 CALL spu_colaboradores_listar()
 
+-- PROCEDIMIENTO ALMACENADO PARA ELIMINAR COLABORADORES --
+DELIMITER$$
+CREATE PROCEDURE spu_colaborador_eliminar(
+IN idcolaborador_ INT
+)
+BEGIN
+  DELETE FROM colaboradores WHERE idcolaborador = idcolaborador_;
+END $$
+
+CALL spu_colaborador_eliminar(3);
+
+
+
+
 
 
 
