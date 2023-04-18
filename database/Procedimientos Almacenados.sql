@@ -151,7 +151,7 @@ BEGIN
   DELETE FROM colaboradores WHERE idcolaborador = idcolaborador_;
 END $$
 
-CALL spu_colaborador_eliminar(3);
+CALL spu_colaborador_eliminar(1);
 
 
 
