@@ -43,11 +43,4 @@ class Colaborador extends Conexion {
     }
   }
 
-
-
-
-
-
-
-
 }

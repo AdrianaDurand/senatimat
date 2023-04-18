@@ -19,6 +19,10 @@
 
 </head>
 
+<!-- Modal trigger button -->
+<div class="col-md-6 text-left">
+          <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal-colaborador"><i class="bi bi-person-plus-fill"></i>Registro COLAB</button>
+  </div>
 
 
 <body>
@@ -45,20 +49,10 @@
         <tbody></tbody>
         
       </table>
-      <!-- Modal trigger button -->
-        <div class="d-grid gap-2 d-md-block">
-          <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal-colaborador"><i class="bi bi-person-plus-fill"></i> Registro COLAB</button>
-        </div>
       </div>
+
     </div>
   </div> <!-- Fin de container-->
-
-
-
-  
-
-  
-
 
   
   <!-- Modal Body -->
@@ -205,8 +199,8 @@
         formData.append("telefono", $("#telefono").val());
         formData.append("direccion", $("#direccion").val());
         formData.append("tipocontrato", $("#tipocontrato").val());
-        formData.append("idcargo", $("#idcargo").val());
-        formData.append("idsede", $("#idsede").val());
+        formData.append("idcargo", $("#cargo").val());
+        formData.append("idsede", $("#sede").val());
         formData.append("curriculumvitae", $("#curriculumvitae")[0].files[0]);
       
 
@@ -256,7 +250,7 @@
         });
       }
     
-    $("#guardar-colaborador").click(preguntarRegistroCOLAB);
+      $("#guardar-colaborador").click(preguntarRegistroCOLAB);
 
 
 
@@ -266,8 +260,8 @@
         $("#apellidos").focus();
 
         //EVENTOS
-        obtenerSedes();
         obtenerCargos();
+        obtenerSedes();
       });
 
       //Funciones de carga auomática

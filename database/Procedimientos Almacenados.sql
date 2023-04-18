@@ -111,11 +111,11 @@ CREATE PROCEDURE spu_colaborador_registrar
 	IN _apellidos 		VARCHAR(40),
 	IN _nombres		VARCHAR(40),
 	IN _nrodocumento	CHAR(8),
+	IN _telefono		CHAR(9),
+	IN _direccion		VARCHAR (40),
+	IN _tipocontrato	CHAR(1),
 	IN _idcargo		INT,
 	IN _idsede		INT,
-	IN _telefono		CHAR(9),
-	IN _tipocontrato	CHAR(1),
-	IN _direccion		VARCHAR (40),
 	IN _curriculumvitae	VARCHAR(100)
 )
 BEGIN
@@ -126,11 +126,11 @@ BEGIN
 	END IF;
 	
 	INSERT INTO colaboradores 
-	(apellidos, nombres, nrodocumento, idcargo, idsede, telefono, tipocontrato, direccion, curriculumvitae) VALUES
-	(_apellidos, _nombres, _nrodocumento, _idcargo, _idsede, _telefono, _tipocontrato, _direccion, _curriculumvitae);
+	(apellidos, nombres, nrodocumento, telefono, direccion, tipocontrato, idcargo, idsede, curriculumvitae) VALUES
+	(_apellidos, _nombres, _nrodocumento, _telefono, _direccion, _tipocontrato, _idcargo, _idsede, _curriculumvitae);
 END$$
 
-CALL spu_colaborador_registrar('Cardenas', 'María', '12341231', 6,2, '988289001', 'P', 'home','');
+CALL spu_colaborador_registrar('Cardenas', 'María', '12341231', '123456789', 'casita', 'C', 1 ,2,'');
 SELECT * FROM colaboradores;
 
 -- PROCEDIMIENTO PARA LISTAR CARGOS
@@ -140,7 +140,7 @@ BEGIN
 		SELECT * FROM cargos ORDER BY 2;
 END$$
 
-CALL spu_cargos_listar()
+CALL spu_colaboradores_listar()
 
 
 

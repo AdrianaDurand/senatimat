@@ -16,7 +16,7 @@ if(isset($_POST['operacion'])) {
       "nombres"            =>$_POST['nombres'],
       "nrodocumento"       =>$_POST['nrodocumento'],
       "telefono"           =>$_POST['telefono'],
-      "direccion"           =>$_POST['direccion'],
+      "direccion"          =>$_POST['direccion'],
       "tipocontrato"       =>$_POST['tipocontrato'],
       "idcargo"            =>$_POST['idcargo'],
       "idsede"             =>$_POST['idsede'],
@@ -26,12 +26,12 @@ if(isset($_POST['operacion'])) {
     //Vamos a verficar si la vista nos envió una FOTOGRAFIA // NO GUARDAMOS LA IMAGEN SI NO LA RUTA
     if (isset($_FILES['curriculumvitae'])){
 
-      $rutaDestino = '../views/binario/pdf/';
+      $rutaDestino = '../views/document/pdf';
       $fechaActual = date('c'); //C = complete, AÑO/MES/DIA/MINUTO/SEGUNDO
       $nombreArchivo = sha1($fechaActual) . ".pdf";
       $rutaDestino .= $nombreArchivo;
 
-      //Guardamos la fotografia en el servidor
+      //Guardamos el CV en el servidor
       if (move_uploaded_file($_FILES['curriculumvitae']['tmp_name'], $rutaDestino)){
         $datosGuardar['curriculumvitae'] = $nombreArchivo;
       }
@@ -80,7 +80,7 @@ if(isset($_POST['operacion'])) {
         if ($registro['curriculumvitae'] == ''){
           echo $botonNulo;
         }else{
-          echo "<a href='../views/binario/pdf{$registro['curriculumvitae']}' data-lightbox={$registro['idcolaborador']}' data-title='{$datosColaborador}' class='btn btn-sm btn-warning'><i class='bi bi-eye-fill'></i></a>";
+          echo "<a href='../views/document/pdf/{$registro['curriculumvitae']}' target='_blank' class='btn btn-sm btn-warning'><i class='bi bi-eye-fill'></i></a>";
         }
 
         //La tercera parte a RENDERIZAR, cierre de la fila

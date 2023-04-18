@@ -113,11 +113,11 @@ CREATE TABLE colaboradores (
   apellidos		 		VARCHAR (40) NOT NULL, 
   nombres 				VARCHAR (40) NOT NULL,
   nrodocumento 				CHAR(8) NOT NULL,
+  telefono		 		CHAR(9) NOT NULL,
+  direccion 			VARCHAR (40) NOT NULL,
+  tipocontrato 		CHAR(1) NOT NULL,
   idcargo			 	INT NOT NULL,
   idsede 				INT NOT NULL,
-  telefono		 		CHAR(9) NOT NULL,
-  tipocontrato 		CHAR(1) NOT NULL,
-  direccion 			VARCHAR (40) NOT NULL,
   curriculumvitae 		VARCHAR (100) NULL,
   fecharegistro 		DATETIME NOT NULL DEFAULT NOW(),
   fechaupdate			DATETIME NULL,
@@ -129,8 +129,8 @@ CREATE TABLE colaboradores (
 
 SELECT * FROM colaboradores;
 
-INSERT INTO colaboradores (apellidos, nombres, nrodocumento, idcargo, idsede, telefono, tipocontrato, direccion) VALUES
-('Cartagena Ramos', 'Mirtha', '12345678', 1, 2, '123456789', 'C', 'casita'),
-('Ochoa Sanchez', 'Carmen', '87654321', 5, 1, '123456789', 'C', 'casita');
+INSERT INTO colaboradores (apellidos, nombres, nrodocumento, telefono, direccion, tipocontrato, idcargo, idsede) VALUES
+('Cartagena Ramos', 'Mirtha', '12345678', '13456789', 'casa', 'C', 2, 1),
+('Ochoa Sanchez', 'Carmen', '87654321', '123456789', 'casa', 'C', 1, 1);
 
 
