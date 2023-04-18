@@ -11,15 +11,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-    <!-- ICONS BOOTSTRAP-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <!-- ICONS BOOTSTRAP-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  
+    <!--Lightbox CSS-->
+  <link rel="stylesheet" href="../dist/lightbox2/src/css/lightbox.css">
 
 </head>
 
-  <!-- Modal trigger button -->
-  <div class="col-md-6 text-left">
-          <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modal-colaborador"><i class="bi bi-person-plus-fill"></i>Registro COLAB</button>
-  </div>
 
 
 <body>
@@ -30,14 +29,15 @@
         <table class="table table-sm table-striped" id="tabla-colaboradores">
           <thead>
           <tr>
-          <th>#</th>
+          <th><i class="bi bi-list-ol"></i></th>
           <th>Apellidos</th>
           <th>Nombres</th>
-          <th>Cargo</th>
-          <th>Sede</th>
-          <th>Teléfono</th>
+          <th>DNI</th>
+          <th>Telefono</th>
           <th>Direccion</th>
           <th>Tipo Contrato</th>
+          <th>Cargo</th>
+          <th>Sede</th>
           <th>Operaciones</th>
         </tr>
 
@@ -45,10 +45,15 @@
         <tbody></tbody>
         
       </table>
+      <!-- Modal trigger button -->
+        <div class="d-grid gap-2 d-md-block">
+          <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal-colaborador"><i class="bi bi-person-plus-fill"></i> Registro COLAB</button>
+        </div>
       </div>
-
     </div>
   </div> <!-- Fin de container-->
+
+
 
   
 
@@ -67,7 +72,7 @@
         </div>
         <div class="modal-body">
 
-        <form action="" autocomplete="off" id="formulario-estudiantes" enctype="multipart/form-data">
+        <form action="" autocomplete="off" id="formulario-colaboradores" enctype="multipart/form-data">
           <div class="row">
               <div class="mb-3 col-md-6">
                 <label for="apellidos" class="form-label">Apellidos</label>
@@ -79,27 +84,41 @@
               </div>
           </div>
 
+
           <div class="row">
               <div class="mb-3 col-md-6">
-              <label for="tipodocumento" class="form-label">Tipo Documento:</label>
-              <select id="tipodocumento" class="form-select form-select-sm">
-                <option value="">Seleccione</option>
-                <option value="D">DNI</option>
-                <option value="C">Carnet de Extranjería</option>
-              </select>
+                <label for="nrodocumento" class="form-label">DNI:</label>
+                <input type="text" id="nrodocumento" class="form-control form-control-sm" autofocus>
+              </div>
+                <div class="mb-3 col-md-6">
+                <label for="telefono" class="form-label">Teléfono:</label>
+                <input type="text" id="telefono" class="form-control form-control-sm" autofocus>
+              </div>
+          </div>
+
+          <div class="row">
+                <div class="mb-3 col-md-6">
+                <label for="direccion" class="form-label">Dirección:</label>
+                <input type="text" id="direccion" class="form-control form-control-sm" autofocus>
               </div>
               <div class="mb-3 col-md-6">
-                <label for="nrodocumento" class="form-label">N° Documento:</label>
-                <input type="text" id="nrodocumento" class="form-control form-control-sm" autofocus>
+              <label for="tipocontrato" class="form-label">Tipo Contrato:</label>
+              <select id="tipocontrato" class="form-select form-select-sm">
+                <option value="">Seleccione</option>
+                <option value="P">Parcial</option>
+                <option value="C">Completo</option>
+              </select>
               </div>
           </div>
 
           <div class="row">
               <div class="mb-3 col-md-6">
-              <label for="fechanacimiento" class="form-label">Fecha de nacimiento:</label>
-              <input type="date" class="form-control form-control-sm" id="fechanacimiento">
-            </div>
-            <div class="mb-3 col-md-6">
+              <label for="cargo" class="form-label">Cargo:</label>
+              <select id="cargo" class="form-select form-select-sm">
+                <option value="">Seleccione</option>
+              </select>
+              </div>
+              <div class="mb-3 col-md-6">
               <label for="sede" class="form-label">Sede:</label>
               <select id="sede" class="form-select form-select-sm">
                 <option value="">Seleccione</option>
@@ -107,31 +126,17 @@
               </div>
           </div>
 
-          <div class="row">
-              <div class="mb-3 col-md-6">
-              <label for="escuela" class="form-label">Escuela:</label>
-              <select id="escuela" class="form-select form-select-sm">
-                <option value="">Seleccione</option>
-              </select>
-              </div>
-              <div class="mb-3 col-md-6">
-              <label for="carrera" class="form-label">Carreras:</label>
-              <select id="carrera" class="form-select form-select-sm">
-                <option value="">Seleccione</option>
-              </select>
-              </div>
-          </div>
-
+        
               <div class="mb-3">
-              <label for="fotografia" class="form-label">Fotografía:</label>
-              <input type="file" id="fotografia" accept=".jpg" class="form-control form-control-sm" >
+              <label for="curriculumvitae" class="form-label">Curriculum Vitae:</label>
+              <input type="file" id="curriculumvitae" accept=".pdf" class="form-control form-control-sm" >
             </div>
 
         </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" id="guardar-estudiante">Guardar</button>
+          <button type="button" class="btn btn-primary" id="guardar-colaborador">Guardar</button>
         </div>
       </div>
     </div>
@@ -161,7 +166,34 @@
     $(document).ready(function (){
 
 
-      function registrarEstudiante(){
+      function obtenerCargos(){
+        $.ajax({
+          url: '../controllers/cargo.controller.php',
+          type: 'POST',
+          data: {operacion: 'listar'},
+          dataType: 'text',
+          success: function(result){
+            $("#cargo").html(result);
+          }
+
+        });
+      }
+
+      function obtenerSedes(){
+        $.ajax({
+          url: '../controllers/sede.controller.php',
+          type: 'POST',
+          data: {operacion: 'listar'},
+          dataType: 'text',
+          success: function(result){
+            $("#sede").html(result);
+          }
+
+        });
+      }
+
+
+      function registrarColaborador(){
         //Enviaremos los datos dentro de un OBJETO
         //Para adjuntar algún archico multimedia(se conoce como BINARIO) se hace con formData:
         var formData = new FormData();
@@ -169,35 +201,36 @@
         formData.append("operacion", "registrar");
         formData.append("apellidos", $("#apellidos").val());
         formData.append("nombres", $("#nombres").val());
-        formData.append("tipodocumento", $("#tipodocumento").val());
         formData.append("nrodocumento", $("#nrodocumento").val());
-        formData.append("fechanacimiento", $("#fechanacimiento").val());
-        formData.append("idcarrera", $("#carrera").val());
-        formData.append("idsede", $("#sede").val());
-        formData.append("fotografia", $("#fotografia")[0].files[0]);
+        formData.append("telefono", $("#telefono").val());
+        formData.append("direccion", $("#direccion").val());
+        formData.append("tipocontrato", $("#tipocontrato").val());
+        formData.append("idcargo", $("#idcargo").val());
+        formData.append("idsede", $("#idsede").val());
+        formData.append("curriculumvitae", $("#curriculumvitae")[0].files[0]);
       
 
         $.ajax({
-          url: '../controllers/estudiante.controller.php',
+          url: '../controllers/colaborador.controller.php',
           type: 'POST',
           data: formData,
           contentType: false,
           processData: false,
           cache: false,
           success: function(){
-            $("#formulario-estudiantes")[0].reset();
-            $("#modal-estudiante").modal("hide");
+            $("#formulario-colaboradores")[0].reset();
+            $("#modal-colaborador").modal("hide");
             alert("Guardando correctamente");
           }
         });
       }
 
 
-      function preguntarRegistro(){
+      function preguntarRegistroCOLAB(){
         Swal.fire({
           icon: 'question',
-          title: 'Matriculas',
-          text:'¿Estas seguro de registrar al estudiante?',
+          title: 'Agregar Colaborador',
+          text:'¿Estas seguro de registrar a esta persona como colaborador?',
           footer: 'Desarrollado con PHP',
           confirmButtonText: 'Aceptar',
           confirmButtonColor: '#EE8509',
@@ -206,7 +239,7 @@
         }).then((result) => {
           //Identificando la acción del usuario
           if(result.isConfirmed){
-              registrarEstudiante();
+              registrarColaborador();
           }
         });
       }
@@ -223,35 +256,18 @@
         });
       }
     
-      $("#guardar-colaboradores").click(preguntarRegistro);
+      $("#guardar-colaborador").click(preguntarRegistroCOLAB);
 
 
 
-      //Al cambiar una escuela, se actualizarán las carreras
-      $("#escuela").change(function (){
-        const idescuelaFiltro = $(this).val();
-
-        $.ajax({
-          url: '../controllers/carrera.controller.php',
-          type: 'POST',
-          data: {
-            operacion     :'listar',
-            idescuela     : idescuelaFiltro  
-          },
-          dataType        : 'text',
-          success         : function(result){
-            $("#carrera").html(result);
-          }     
-        })
-      });
-
+    
       //Predeterminamos un control dentro del modal
-      $("#modal-estudiante").on("shown.bs.modal", event => {
+      $("#modal-colaborador").on("shown.bs.modal", event => {
         $("#apellidos").focus();
 
         //EVENTOS
         obtenerSedes();
-        obtenerEscuelas();
+        obtenerCargos();
       });
 
       //Funciones de carga auomática
