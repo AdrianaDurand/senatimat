@@ -74,7 +74,7 @@ if(isset($_POST['operacion'])) {
         <td>{$registro['sede']}</td>
         <td>
             <a href='#' data-idcolaborador='{$registro['idcolaborador']}' class='btn btn-danger btn-sm eliminar'><i class='bi bi-trash3-fill'></i></a>
-            <a href='#' class='btn btn-sm btn-info'><i class='bi bi-pencil-fill'></i></a>";
+      ";
 
         //La segunda parte a RENDERIZAR, es el botón VER PDF
 

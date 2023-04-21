@@ -66,7 +66,7 @@ if(isset($_POST['operacion'])) {
             <td>
                 <a href='#' class='btn btn-sm btn-danger'><i class='bi bi-trash-fill'></i></a>
 
-                <a href='#' class='btn btn-sm btn-info'><i class='bi bi-pencil-fill'></i></a>";
+       ";
 
         //La segunda parte a RENDERIZAR, es el botón VER FOTOGRAFIA
 

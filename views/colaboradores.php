@@ -84,11 +84,11 @@
           <div class="row">
               <div class="mb-3 col-md-6">
                 <label for="nrodocumento" class="form-label">DNI:</label>
-                <input type="text" id="nrodocumento" class="form-control form-control-sm" autofocus>
+                <input type="text" id="nrodocumento" pattern="\d{8}" maxlength="8" class="form-control form-control-sm" autofocus>
               </div>
                 <div class="mb-3 col-md-6">
                 <label for="telefono" class="form-label">Teléfono:</label>
-                <input type="text" id="telefono" class="form-control form-control-sm" autofocus>
+                <input type="text" id="telefono" pattern="\d{9}" maxlength="9" class="form-control form-control-sm" autofocus>
               </div>
           </div>
 
