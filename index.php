@@ -22,6 +22,26 @@ if (isset($_SESSION['login']) && $_SESSION['login']){
     <!-- Íconos de Bootstrap-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 
+  <style>
+    body {
+        background-image: url('views/img/login/documentos.jpeg');
+        background-size: contain;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        position: relative;
+        min-height: 100vh;
+    }
+
+    .background-image {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        z-index: -1;
+    }
+</style>
+
 </head>
 
 <body>
@@ -90,8 +110,11 @@ if (isset($_SESSION['login']) && $_SESSION['login']){
           });
         }
       }
-
       $("#iniciar-sesion").click(iniciarSesion);
+
+
+
+      
 
     });
   </script>

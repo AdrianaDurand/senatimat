@@ -27,6 +27,14 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
 
 </head>
 
+<html>
+<div class="container">
+  <div class="row">
+    <div class="mb-3 d-grid gap-2 text-center" style="background-color: #007bff; width: 100vw">
+        <h1 class="my-3" style="text-decoration: underline; color: #ffffff">REGISTROS DE ESTUDIANTES</h1>
+    </div>
+</div>
+
 
 
 <body>
@@ -71,7 +79,7 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header text-bg-secondary">
-          <h5 class="modal-title" id="modalTitleId">Complete el Registro</h5>
+          <h5 class="modal-title" id="modalTitleId">Complete el Registro de NUEVO Estudiante:</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">

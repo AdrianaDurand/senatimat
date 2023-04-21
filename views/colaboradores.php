@@ -28,6 +28,15 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
 </head>
 
 
+<html>
+<div class="container">
+  <div class="row">
+    <div class="mb-3 d-grid gap-2 text-center" style="background-color: #007bff; width: 100vw">
+        <h1 class="my-3" style="text-decoration: underline; color: #ffffff">REGISTROS DE COLABORADORES</h1>
+    </div>
+</div>
+
+
 
 <body>
   <div class="container mt-3">
@@ -40,10 +49,9 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
           <th><i class="bi bi-list-ol"></i></th>
           <th>Apellidos</th>
           <th>Nombres</th>
-          <th>DNI</th>
           <th>Telefono</th>
           <th>Direccion</th>
-          <th>Tipo Contr.</th>
+          <th>Tipo C.</th>
           <th>Cargo</th>
           <th>Sede</th>
           <th>Operaciones</th>

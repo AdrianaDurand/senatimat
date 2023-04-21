@@ -66,7 +66,6 @@ if(isset($_POST['operacion'])) {
         <td>{$numeroFila}</td>
         <td>{$registro['apellidos']}</td>
         <td>{$registro['nombres']}</td>
-        <td>{$registro['nrodocumento']}</td>
         <td>{$registro['telefono']}</td>
         <td>{$registro['direccion']}</td>
         <td>{$registro['tipocontrato']}</td>

@@ -28,6 +28,7 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
         <!-- ICONS BOOTSTRAP-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 
+
 </head>
 <html>
 <div class="container">
