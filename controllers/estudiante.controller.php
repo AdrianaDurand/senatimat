@@ -6,6 +6,7 @@ if(isset($_POST['operacion'])) {
 
   $estudiante = new Estudiante();
 
+
   if ($_POST['operacion'] == 'registrar'){
 
     //PASO 1: Recolectar todos los valores enviados por la vista y almacenarlos en un array asociativo

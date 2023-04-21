@@ -153,7 +153,27 @@ END $$
 
 CALL spu_colaborador_eliminar(1);
 
+-- ACTUALIZANDO POR CLAVE ENCRIPTADA
+-- Defecto : SENATI
+UPDATE usuarios SET
+	claveacceso = '$2y$10$UVumvYTP8aTab4XdFzj.GuSrFri19FfM7pGw3SEh6m1uOeoWwsne6'
+	WHERE idusuario = 1;
 
+UPDATE usuarios SET
+	claveacceso = '$2y$10$fLjA/RlV5oZfaT0XyOoeGOjHfd5wbgG1oT9QiKCXWBMD/9JqSy53a'
+	WHERE idusuario = 2;
+SELECT * FROM usuarios;
+
+
+DELIMITER $$
+CREATE PROCEDURE spu_usuarios_login(IN nombreusuario_ VARCHAR(30))
+BEGIN
+	SELECT 	idusuario, nombreusuario, claveacceso,
+				apellidos, nombres, nivelacceso
+	FROM usuarios
+	WHERE nombreusuario = nombreusuario_ AND estado = '1';
+END $$
+CALL spu_usuarios_login('ADRIANA');
 
 
 

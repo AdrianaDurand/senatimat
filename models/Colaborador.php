@@ -9,6 +9,8 @@ class Colaborador extends Conexion {
     $this->accesoBD = parent::getConexion();
   }
 
+
+
   public function registrarColaborador($datos = []){
     try{
       $consulta = $this->accesoBD->prepare("CALL spu_colaborador_registrar(?,?,?,?,?,?,?,?,?)");

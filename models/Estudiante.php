@@ -9,7 +9,6 @@ class Estudiante extends Conexion{
     $this->accesoBD = parent::getConexion();
 
   }
-
   //CREANDO FUNCIONES
   //DATOS[] es un array asociativo, que contiene la información a guardar proveniente del contralador 
 

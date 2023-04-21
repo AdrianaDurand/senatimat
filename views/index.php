@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
+  header('Location:../index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -24,8 +32,8 @@
 <html>
 <div class="container">
   <div class="row">
-    <div class="mb-3 d-grid gap-2 bg-center text-center">
-        <h1 class="my-3" style="text-decoration: underline">ACCESO A REGISTROS</h1>
+    <div class="mb-3 d-grid gap-2 text-center" style="background-color: #09032b; width: 100vw">
+        <h1 class="my-3" style="text-decoration: underline; color: #ffffff">ACCESO A REGISTROS</h1>
     </div>
 </div>
     <div class="row">
@@ -35,7 +43,7 @@
         </span>
       </div>
       
-    <div class="mb-3 d-grid gap-2" style="background-color: #e9e979a2;">   <!---->
+    <div class="mb-3 d-grid gap-2" style="background-color: #e9e979a2">   <!---->
         <span>
         >RECUERDE, solo personal autorizado puede realizar la eliminación de registros!
         </span>
@@ -74,20 +82,37 @@
             </div>
         </div>
     </div>
-      
-
-  <!-- Bootstrap JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-  </script>
-
-  <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>    
-      
 
 </body>
+      
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="mb-3 d-grid gap-2 text-center" style="background-color: #09032b; width: 100vw; margin-top: 20px;">
+                <table style="width:100%">
+                    <tr>
+                        <td style="text-align: left; color: #ffffffa9;">
+                            <div style="background-color: #09032b; height: 5px; width: 100%;"></div>
+                            <span style="display: inline-block; margin-top: 5px; font-weight: bold; font-size: 14px">©Adriana Durand Buenamarca</span>
+                        </td>
+                        <td style="text-align: center; color: #ffffffa9;">
+                            <div style="background-color: #09032b; height: 5px; width: 100%;"></div>
+                            <span style="display: inline-block; margin-top: 5px; font-weight: bold; font-size: 14px">TR: Seminario de Complementación Práctica I</span>
+                        </td>
+                        <td style="text-align: right; color: #ffffffa9;">
+                        <button type="button" class="btn btn-sm btn-danger" id="cerrar-sesion" onclick="location.href='../controllers/usuario.controller.php?operacion=finalizar'">
+                            Cerrar sesión</i>
+                        </button>
+                        </td>
+                        
+                        
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
 </html>
