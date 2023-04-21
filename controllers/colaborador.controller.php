@@ -52,7 +52,7 @@ if(isset($_POST['operacion'])) {
     if ($data){
       $numeroFila = 1;
       $datosColaborador = '';
-      $botonNulo = " <a href='#' class='btn btn-sm btn-warning' title='No adjunto'><i class='bi bi-eye-slash-fill'></i></a>";
+      $botonNulo = " <a href='#'class='btn btn-sm btn-outline-warning title='No adjunto'><i class='bi bi-eye-slash-fill'></i></a>";
 
 
       foreach($data as $registro){
@@ -73,7 +73,7 @@ if(isset($_POST['operacion'])) {
         <td>{$registro['cargo']}</td>
         <td>{$registro['sede']}</td>
         <td>
-            <a href='#' data-idcolaborador='{$registro['idcolaborador']}' class='btn btn-danger btn-sm eliminar'><i class='bi bi-trash3-fill'></i></a>
+            <a href='#' data-idcolaborador='{$registro['idcolaborador']}'class='btn btn-outline-danger btn-sm eliminar'><i class='bi bi-trash3-fill'></i></a>
       ";
 
         //La segunda parte a RENDERIZAR, es el botón VER PDF
@@ -81,7 +81,7 @@ if(isset($_POST['operacion'])) {
         if ($registro['curriculumvitae'] == ''){
           echo $botonNulo;
         }else{
-          echo "<a href='../views/document/pdf/{$registro['curriculumvitae']}' target='_blank' class='btn btn-sm btn-warning'><i class='bi bi-eye-fill'></i></a>";
+          echo "<a href='../views/document/pdf/{$registro['curriculumvitae']}' target='_blank' class='btn btn-outline-warning btn-sm'><i class='bi bi-eye-fill'></i></a>";
         }
 
         //La tercera parte a RENDERIZAR, cierre de la fila

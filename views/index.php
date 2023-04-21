@@ -36,10 +36,11 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
         <h1 class="my-3" style="text-decoration: underline; color: #ffffff">ACCESO A REGISTROS</h1>
     </div>
 </div>
+
     <div class="row">
       <div class="mb-3 d-grid gap-2">
           <span>
-            BIENVENIDO, con su acceso puede ingresar a los registros que necesite para cotejar y/o eliminar datos de los alumnos como tambien colaboradores.
+            BIENVENIDO, con su acceso puede extraer los registros que necesite para cotejar y/o eliminar datos de los alumnos como tambien colaboradores.
         </span>
       </div>
       
@@ -93,14 +94,11 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
                 <table style="width:100%">
                     <tr>
                         <td style="text-align: left; color: #ffffffa9;">
-                            <div style="background-color: #09032b; height: 5px; width: 100%;"></div>
-                            <span style="display: inline-block; margin-top: 5px; font-weight: bold; font-size: 14px">©Adriana Durand Buenamarca</span>
-                        </td>
-                        <td style="text-align: center; color: #ffffffa9;">
-                            <div style="background-color: #09032b; height: 5px; width: 100%;"></div>
-                            <span style="display: inline-block; margin-top: 5px; font-weight: bold; font-size: 14px">TR: Seminario de Complementación Práctica I</span>
+                            <div style="background-color: #09032b; height: 20px; width: 100%;"></div>
+                            <span style="display: inline-block; margin-top: 5px; font-weight: bold; font-size: 14px">©AdrianaDurand</span>
                         </td>
                         <td style="text-align: right; color: #ffffffa9;">
+                        <div style="background-color: #09032b; height: 10px; width: 50%;"></div>
                         <button type="button" class="btn btn-sm btn-danger" id="cerrar-sesion" onclick="location.href='../controllers/usuario.controller.php?operacion=finalizar'">
                             Cerrar sesión</i>
                         </button>

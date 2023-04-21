@@ -43,7 +43,7 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
           <th>DNI</th>
           <th>Telefono</th>
           <th>Direccion</th>
-          <th>Tipo Contrato</th>
+          <th>Tipo Contr.</th>
           <th>Cargo</th>
           <th>Sede</th>
           <th>Operaciones</th>
@@ -57,7 +57,7 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
 
       <!-- Modal trigger button -->
       <div class="col-md-6 text-left">
-          <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal-colaborador"><i class="bi bi-person-plus-fill"></i>Registro COLAB</button>
+          <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal-colaborador"><i class="bi bi-person-plus-fill"></i> Registrar</button>
       </div>
 
 
@@ -223,8 +223,8 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
           cache: false,
           success: function(){
             $("#formulario-colaboradores")[0].reset();
+            mostrarColaboradores();
             $("#modal-colaborador").modal("hide");
-            alert("Guardando correctamente");
           }
         });
       }

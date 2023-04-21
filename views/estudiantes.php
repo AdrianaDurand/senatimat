@@ -27,10 +27,6 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
 
 </head>
 
-  <!-- Modal trigger button -->
-  <div class="col-md-6 text-left">
-          <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modal-estudiante"><i class="bi bi-person-plus-fill"></i>Registro</button>
-  </div>
 
 
 <body>
@@ -41,7 +37,7 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
         <table class="table table-sm table-striped" id="tabla-estudiantes">
           <thead>
           <tr>
-          <th>#</th>
+          <th><i class="bi bi-list-ol"></i></th>
           <th>Apellidos</th>
           <th>Nombres</th>
           <th>Tipo Doc.</th>
@@ -53,9 +49,12 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
 
           </thead>
         <tbody></tbody>
-        
-      </table>
-      </div>
+        </table>
+    </div>
+    <!-- Modal trigger button -->
+    <div class="col-md-6 text-left">
+          <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-estudiante"><i class="bi bi-person-plus-fill"></i> Registrar</button>
+    </div>
 
     </div>
   </div> <!-- Fin de container-->
@@ -222,8 +221,9 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
           cache: false,
           success: function(){
             $("#formulario-estudiantes")[0].reset();
+            mostrarEstudiantes();
             $("#modal-estudiante").modal("hide");
-            alert("Guardando correctamente");
+
           }
         });
       }
@@ -292,6 +292,28 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
 
       //Funciones de carga auomática
       mostrarEstudiantes();
+
+
+      // ELIMINAR ESTUDIANTES
+      $("#tabla-estudiantes tbody").on("click", ".eliminar", function(){
+        const idestudianteEliminar = $(this).data("idestudiante");
+        if (confirm("¿Está seguro de eliminar a este Estudiante?")){
+          $.ajax({
+            url: '../controllers/estudiante.controller.php',
+            type: 'POST',
+            data: {
+              operacion   : 'eliminar',
+              idestudiante   : idestudianteEliminar
+            },
+            success: function(result){
+              if(result == ""){
+              mostrarEstudiantes();
+              }
+            }
+          });
+        }
+      });
+
 
     });
   </script>

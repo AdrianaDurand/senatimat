@@ -18,8 +18,7 @@ if (isset($_POST['operacion'])){
     }else{
       echo "<option value= ''>No encontramos datos</option>";
     }
-  }
-
+  } 
 
 
 

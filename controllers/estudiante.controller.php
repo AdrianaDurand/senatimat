@@ -48,7 +48,7 @@ if(isset($_POST['operacion'])) {
     if ($data){
       $numeroFila = 1;
       $datosEstudiante = '';
-      $botonNulo = " <a href='#' class='btn btn-sm btn-warning' title='No tiene fotografía'><i class='bi bi-eye-slash-fill'></i></a>";
+      $botonNulo = " <a href='#' class='btn btn-sm btn-outline-warning' title='No tiene fotografía'><i class='bi bi-eye-slash-fill'></i></a>";
       
 
       foreach($data as $registro){
@@ -65,7 +65,7 @@ if(isset($_POST['operacion'])) {
             <td>{$registro['fechanacimiento']}</td>
             <td>{$registro['carrera']}</td>
             <td>
-                <a href='#' class='btn btn-sm btn-danger'><i class='bi bi-trash-fill'></i></a>
+                <a href='#' data-idestudiante='{$registro['idestudiante']}' class='btn btn-outline-danger btn-sm eliminar'><i class='bi bi-trash-fill'></i></a>
 
        ";
 
@@ -74,7 +74,7 @@ if(isset($_POST['operacion'])) {
         if ($registro['fotografia'] == ''){
           echo $botonNulo;
         }else{
-          echo "<a href='../views/img/fotografias/{$registro['fotografia']}' data-lightbox={$registro['idestudiante']}' data-title='{$datosEstudiante}' class='btn btn-sm btn-warning'><i class='bi bi-eye-fill'></i></a>";
+          echo "<a href='../views/img/fotografias/{$registro['fotografia']}' data-lightbox={$registro['idestudiante']}' data-title='{$datosEstudiante}' class='btn btn-sm btn-outline-warning'><i class='bi bi-eye-fill'></i></a>";
         }
 
         //La tercera parte a RENDERIZAR, cierre de la fila
@@ -87,5 +87,9 @@ if(isset($_POST['operacion'])) {
       }
     }
   } //Fin operacion=listar
+  
+  if($_POST['operacion'] == 'eliminar'){
+    $estudiante->eliminarEstudiante($_POST['idestudiante']);
+  }
 
 }

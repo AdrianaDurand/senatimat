@@ -61,6 +61,15 @@ BEGIN
 		SELECT * FROM escuelas ORDER BY 2;
 END$$
 
+-- PROCEDIMIENTO ALMACENADO PARA ELIMINAR ESTUDIANTES --
+DELIMITER$$
+CREATE PROCEDURE spu_estudiantes_eliminar(
+IN idestudiante_ INT
+)
+BEGIN
+  DELETE FROM estudiantes WHERE idestudiante = idestudiante_;
+END $$
+
 
 -- PROCEDIMIENTO PARA LISTAR CARRERAS
 DELIMITER $$
