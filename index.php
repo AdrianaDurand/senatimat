@@ -22,6 +22,9 @@ if (isset($_SESSION['login']) && $_SESSION['login']){
     <!-- Íconos de Bootstrap-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 
+   <!--Sweet alert2-->
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <style>
     body {
         background-image: url('views/img/login/documentos.jpeg');
@@ -50,7 +53,7 @@ if (isset($_SESSION['login']) && $_SESSION['login']){
       <div class="col-md-3"></div>
       <div class="col-md-6">
         <!-- INICIO DE CARD -->
-        <div class="card">
+        <div class="card" id="login">
           <div class="card-header bg-primary text-light">
            <strong>Inicio de sesión</strong>
           </div>
@@ -104,7 +107,12 @@ if (isset($_SESSION['login']) && $_SESSION['login']){
               if (result["status"]){
                 window.location.href = "views/index.php";
               }else{
-                alert(result["mensaje"]);
+                Swal.fire({
+                  icon: 'error',
+                  title: 'ERROR',
+                 text: 'No identificamos los datos ingresados',
+                 footer: 'Por favor revise nuevamente sus credenciales',    
+              })
               }
             }
           });

@@ -33,7 +33,7 @@ if (isset($_POST['operacion'])){
         
       }else{
         // El usuario no existe
-        $resultado["mensaje"] = "No encontramos al usuario";
+        $resultado["mensaje"] = "No encontramos al usuario ";
       }
   
       // Enviams el objeto resultado a la vista

@@ -30,9 +30,22 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
 
 <html>
 <div class="container">
+
+<ul class="mb-3 nav nav-tabs">
+  <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="../index.php">Página Principal</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" aria-current="page" href="../views/estudiantes.php">Estudiantes</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" href="../views/colaboradores.php">Colaboradores</a>
+  </li>
+  </ul>
+
   <div class="row">
-    <div class="mb-3 d-grid gap-2 text-center" style="background-color: #007bff; width: 100vw">
-        <h1 class="my-3" style="text-decoration: underline; color: #ffffff">REGISTROS DE COLABORADORES</h1>
+    <div class="mb-3 d-grid gap-2 text-center" style="background-color: #006400; width: 100vw">
+    <h1 class="my-3" style="text-decoration: underline; color: #ffffff">REGISTROS DE COLABORADORES</h1>
     </div>
 </div>
 
