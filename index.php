@@ -110,7 +110,7 @@ if (isset($_SESSION['login']) && $_SESSION['login']){
                 Swal.fire({
                   icon: 'error',
                   title: 'ERROR',
-                 text: 'No identificamos los datos ingresados',
+                 text: result["mensaje"],
                  footer: 'Por favor revise nuevamente sus credenciales',    
               })
               }

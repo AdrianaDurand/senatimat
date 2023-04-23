@@ -33,15 +33,22 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
 
 <ul class="mb-3 nav nav-tabs">
   <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="../index.php">Página Principal</a>
+    <a class="nav-link active" aria-current="page" href="../index.php"><i class="bi bi-house-fill"></i> Página Principal</a>
   </li>
   <li class="nav-item">
-      <a class="nav-link" aria-current="page" href="../views/estudiantes.php">Estudiantes</a>
+    <a class="nav-link" aria-current="page" href="../views/colaboradores.php"><i class="bi bi-person-square"></i> Colaboradores</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" aria-current="page" href="../views/colaboradores.php">Colaboradores</a>
+    <a class="nav-link" aria-current="page" href="../views/estudiantes.php"><i class="bi bi-person-fill"></i> Estudiantes</a>
   </li>
-  </ul>
+
+  <button type="button" id="cerrar-sesion" class="btn btn-sm btn-danger ms-auto">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"></path>
+        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"></path>
+    </svg>
+</button>
+</ul>
 
   <div class="row">
     <div class="mb-3 d-grid gap-2 text-center" style="background-color: #006400; width: 100vw">
@@ -258,7 +265,7 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
           text:'¿Estas seguro de registrar a esta persona como colaborador?',
           footer: 'Desarrollado con PHP',
           confirmButtonText: 'Aceptar',
-          confirmButtonColor: '#EE8509',
+          confirmButtonColor: '#28a745',
           showCancelButton: true,
           cancelButtonText: 'Cancelar'
         }).then((result) => {
@@ -267,7 +274,24 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
               registrarColaborador();
           }
         });
-      }
+      } 
+
+      document.getElementById('cerrar-sesion').addEventListener('click', function() {
+        Swal.fire({
+          title: '¿Deseas cerrar sesión?',
+          text: 'Cerraremos tu sesión actual.',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Sí, cerrar sesión',
+          cancelButtonText: 'Cancelar'
+      }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = '../controllers/usuario.controller.php?operacion=finalizar';
+        }
+      });
+        });
 
       function mostrarColaboradores(){
         $.ajax({

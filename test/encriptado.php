@@ -16,3 +16,4 @@ $claveAcceso =  "SENATI";
 if (password_verify($claveAcceso, $claveHAS)){
   echo $claveHAS;
 }
+

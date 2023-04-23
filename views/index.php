@@ -100,9 +100,7 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
                         </td>
                         <td style="text-align: right; color: #ffffffa9;">
                         <div style="background-color: #09032b; height: 10px; width: 50%;"></div>
-                        <button type="button" class="btn btn-sm btn-danger" id="cerrar-sesion" onclick="location.href='../controllers/usuario.controller.php?operacion=finalizar'">
-                            Cerrar sesión</i>
-                        </button>
+                        <button type="button" class="btn btn-sm btn-danger" id="cerrar-sesion" onclick="location.href='../controllers/usuario.controller.php?operacion=finalizar'"><i class="bi bi-box-arrow-left"></i> Cerrar sesión</button>
                         </td>
                         
                         
