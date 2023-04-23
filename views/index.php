@@ -6,6 +6,7 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,12 +22,12 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS v5.2.1 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-        <!-- ICONS BOOTSTRAP-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- ICONS BOOTSTRAP-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 
 
 </head>
@@ -100,8 +101,10 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
                         </td>
                         <td style="text-align: right; color: #ffffffa9;">
                         <div style="background-color: #09032b; height: 10px; width: 50%;"></div>
-                        <button type="button" class="btn btn-sm btn-danger" id="cerrar-sesion" onclick="location.href='../controllers/usuario.controller.php?operacion=finalizar'"><i class="bi bi-box-arrow-left"></i> Cerrar sesión</button>
+                        <button type="button" class="btn btn-sm btn-danger" id="cerrar-sesion"><i class="bi bi-box-arrow-left"></i> Cerrar sesión</button>
                         </td>
+                        
+                        
                         
                         
                     </tr>
@@ -110,6 +113,31 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == false){
         </div>
     </div>
 </footer>
+
+
+ <!--Sweet alert2-->
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+
+<script>
+        document.getElementById('cerrar-sesion').addEventListener('click', function() {
+        Swal.fire({
+          title: '¿Deseas cerrar sesión?',
+          text: 'Cerraremos tu sesión actual.',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Sí, cerrar sesión',
+          cancelButtonText: 'Cancelar'
+      }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = '../controllers/usuario.controller.php?operacion=finalizar';
+        }
+      });
+        });
+
+</script>
 
 
 </html>
